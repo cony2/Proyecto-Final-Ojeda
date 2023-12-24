@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+<style>
+    .form-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 50%;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: rgb(26, 95, 117);
+    }
+
+    .form-field {
+        margin-bottom: 15px;
+    }
+
+    input[type="submit"] {
+        background-color: rgb(26, 95, 117);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Agregar Posteo</h2>
+    <form action="{% url 'core:crear-pelicula' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-field">
+            {{ form.as_p }}
+        </div>
+        <input type="submit" value="Publicar">
+    </form>
+</div>
+
+{% endblock%}

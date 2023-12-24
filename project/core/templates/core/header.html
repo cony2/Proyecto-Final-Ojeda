@@ -1,0 +1,20 @@
+<br>
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            {% if user.is_authenticated %}
+                <h1 class="display-4 fw-bolder">Bienvenido(a), {{ user.username }}</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Forjamos una comunidad sobre cine</p>
+                <br>
+                <a href="{% url 'core:lista-peliculas' %}"class="btn btn-primary">Ver foro</a>
+            {% else %}
+                <h1 class="display-4 fw-bolder">Bienvenido</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Forjamos una comunidad sobre cine</p>
+                <p class="lead fw-normal text-white-50 mb-0">Inicia sesión o regístrate para acceder a nuestro foro</p>
+            {% endif %}
+           
+            
+            
+        </div>
+    </div>
+</header>

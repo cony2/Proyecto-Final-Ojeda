@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block contenido %}
+
+<a href="{% url 'core:crear-pelicula'%}" class="btn btn-primary">Publicar</a>
+<br>
+<br>
+
+<div class="row">
+    {% if peliculas %}
+        {% for pelicula in peliculas %}
+            <div class="col-md-2 mb-3">
+                <div class="card">
+                    <img src="{{ pelicula.imagenPortada.url }}" class="card-img-top" alt="{{ pelicula.titulo }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pelicula.titulo }}</h5>
+                        <p class="card-text"><strong>Por:</strong> {{ pelicula.autor }}</p>
+                        <p class="card-text"><strong>Categoría:</strong> {{ pelicula.categoria }}</p>
+                        <a href="{% url 'core:detalle-pelicula' pelicula.id %}" class="btn btn-primary">Ver Detalles</a>
+                        <br>
+                        {% if user.id == pelicula.autor.id %}
+                        
+                        <a href="{% url 'core:eliminar-pelicula' pelicula.id %}" class="btn btn-danger">Eliminar</a>
+                        <a href="{% url 'core:editar-pelicula' pelicula.id %}" class="btn btn-secondary">Editar</a>
+                            
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h3>No existen películas en la base de datos.</h3>
+    {% endif %}
+</div>
+    
+{% endblock contenido %}

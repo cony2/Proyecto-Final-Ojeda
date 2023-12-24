@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+    <!-- Estilos para el contenido -->
+    <style>
+        .about-content {
+            font-family: Arial, sans-serif;
+            color: #4a90e2;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-content img {
+            max-width: 200px; /* Cambia el tamaño según tu preferencia */
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 50%; /* Hace que la imagen sea redonda */
+            border: 3px solid #4a90e2; /* Borde alrededor de la imagen */
+            display: block;
+            margin: 0 auto; /* Centra la imagen */
+        }
+    </style>
+
+    <!-- Contenido específico de la página "Acerca de mí" -->
+    <div class="about-content">
+        <h2>Constanza Ojeda</h2>
+        <img src="{% static 'core/images/foto_mia.jpg' %}" alt="Mi Imagen">
+        <p>Que tal! mi nombre es Constanza, me dicen Coni. Trabajo en el rubro de la estética (¡Nada que ver!) y esta es mi primera vez desarrollando un proyecto. Antes estudié un poco de HTML y CSS, con eso me di cuenta de que quería adentrarme más en este mundo de lo que es la programación y aca estoy!... Aprendí muchísimo de este nuevo lenguaje.Gracias por visitar mi página!
+        </p>
+    </div>
+{% endblock %}
